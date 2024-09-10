@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CashierController;
 use App\Http\Controllers\Backend\ManagerController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,11 @@ Route::middleware('auth')->group(function () {
    Route::get('display-product',[ProductController::class,'displayProduct'])->name('displayProduct');
    Route::delete('product-data-delete-all',[ProductController::class,'destroyAll'])->name('product-data.destroyall');
    Route::get('print-product-barcode',[ProductController::class,'printProductsBarcode'])->name('product-data.printbarcode');
+
+   //member routes
+   Route::resource('member-data',MemberController::class);
+   Route::get('display-member',[ProductController::class,'displayMember'])->name('displayMember');
+
 });
 
 Route::middleware(['auth','role:admin'])->group(function () {

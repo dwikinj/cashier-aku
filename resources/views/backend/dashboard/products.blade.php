@@ -272,39 +272,6 @@
                         },
 
                     ],
-                    // orderCellsTop: true,
-                    // fixedHeader: true,
-                    // initComplete: function() {
-                    //     var api = this.api();
-
-                    //     // For each column
-                    //     api.columns().eq(0).each(function(colIdx) {
-                    //         // Set the header cell to contain the input element
-                    //         var cell = $('.column-search', api.column(colIdx).footer());
-
-                    //         // On every keypress in this input
-                    //         $(cell).on('keyup change', function(e) {
-                    //             e.stopPropagation();
-
-                    //             // Get the search value
-                    //             $(this).attr('title', $(this).val());
-                    //             var regexr =
-                    //             '({search})'; //$(this).parents('th').find('select').val();
-
-                    //             var cursorPosition = this.selectionStart;
-                    //             // Search the column for that value
-                    //             api
-                    //                 .column(colIdx)
-                    //                 .search((this.value != "") ? regexr.replace('{search}',
-                    //                         '(((' + this.value + ')))') : "", this.value !=
-                    //                     "", this.value == "")
-                    //                 .draw();
-
-                    //             $(this).focus()[0].setSelectionRange(cursorPosition,
-                    //                 cursorPosition);
-                    //         });
-                    //     });
-                    // }
                 });
             });
             //// end fetch & populate datatable

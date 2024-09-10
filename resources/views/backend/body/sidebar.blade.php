@@ -12,6 +12,9 @@
                 <li>
                     <a href="{{route('displayProduct')}}"><i data-feather="package"></i> <span>Products</span></a>
                 </li>
+                <li>
+                    <a href="{{route('displayMember')}}"><i data-feather="users"></i> <span>Users</span></a>
+                </li>
 
                 <li>
                     <a href="invoice-items.html"><i data-feather="star"></i> <span>Items</span></a>
@@ -27,13 +30,12 @@
                 <li class="menu-title">
                     <span>Pages</span>
                 </li>
+               
                 <li>
                     <a href="profile.html"><i data-feather="user-plus"></i> <span>Profile</span></a>
                 </li>
               
-                <li>
-                    <a href="users.html"><i data-feather="user"></i> <span>Users</span></a>
-                </li>
+              
                 <li>
                     <a href="blank-page.html"><i data-feather="file"></i> <span>Blank Page</span></a>
                 </li>
