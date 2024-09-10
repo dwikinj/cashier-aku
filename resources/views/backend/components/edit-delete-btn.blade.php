@@ -1,0 +1,2 @@
+<a href="#" data-id="{{$data->id}}" class="btn btn-warning btn-sm category-edit-btn">Edit</a>
+<a href="#" data-id="{{$data->id}}" id="confirm-delete" class="btn btn-danger btn-sm category-delete-btn">Delete</a>

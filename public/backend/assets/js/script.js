@@ -86,14 +86,16 @@
         }, booking_range);
         booking_range(start, end);
     }
-    if ($('.datatable').length > 0) {
-        $('.datatable').DataTable({
-            language: {
-                search: '<i class="fas fa-search"></i>',
-                searchPlaceholder: "Search"
-            }
-        });
-    }
+    //datatable
+
+    // if ($('.datatable').length > 0) {
+    //     $('.datatable').DataTable({
+    //         language: {
+    //             search: '<i class="fas fa-search"></i>',
+    //             searchPlaceholder: "Search"
+    //         }
+    //     });
+    // }
     if ($slimScrolls.length > 0) {
         $slimScrolls.slimScroll({
             height: 'auto',

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
     public function index() {
-        return view('backend.base_dashboard');
+        return view('backend.dashboard.home');
     }
 
     
