@@ -525,7 +525,7 @@
                 if (id.length < 1) {
                     Swal.fire({
                         title: "Oops...",
-                        text: "Please select products that you want to print barcode for!",
+                        text: "Please select products which you want to print their barcode!",
                         icon: "error",
                     });
                     return;
