@@ -1,13 +1,20 @@
+@php
+    $setting = App\Models\Setting::first();
+    $logoPath = $setting && $setting->logo_path 
+        ? Storage::url($setting->logo_path)
+        : asset('storage/default/company_logo.png');
+@endphp
+
 <div class="header header-one">
     <div class="header-left header-left-one">
         <a href="index.html" class="logo">
-            <img src="{{asset('backend/assets/img/logo-small.png')}}" alt="Logo">
+            <img src="{{$logoPath}}" alt="Logo">
         </a>
         <a href="index.html" class="white-logo">
             <img src="assets/img/logo-white.png" alt="Logo">
         </a>
         <a href="index.html" class="logo logo-small">
-            <img src="{{asset('backend/assets/img/logo-small.png')}}" alt="Logo" width="30" height="30">
+            <img src="{{$logoPath}}" alt="Logo" width="30" height="30">
         </a>
     </div>
     <a href="javascript:void(0);" id="toggle_btn">

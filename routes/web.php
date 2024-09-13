@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,7 +19,7 @@ Route::middleware('guest')->group(function () {
     //register end
 
     //login
-    Route::get('/login', [AuthController::class, 'loginIndex'])->name('login');
+    Route::get('/', [AuthController::class, 'loginIndex'])->name('login');
     //login end
 });
 
@@ -37,7 +38,12 @@ Route::middleware('auth')->group(function () {
 
    //member routes
    Route::resource('member-data',MemberController::class);
-   Route::get('display-member',[ProductController::class,'displayMember'])->name('displayMember');
+   Route::get('display-member',[MemberController::class,'displayMember'])->name('displayMember');
+   Route::get('print-member-barcode',[MemberController::class,'printProductsBarcode'])->name('member-data.printbarcode');
+   
+   //settings routes
+   Route::resource('settings',SettingController::class);
+   Route::get('display-settings',[SettingController::class,'displaySetting'])->name('displaySetting');
 
 });
 

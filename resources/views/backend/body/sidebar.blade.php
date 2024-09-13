@@ -13,7 +13,10 @@
                     <a href="{{route('displayProduct')}}"><i data-feather="package"></i> <span>Products</span></a>
                 </li>
                 <li>
-                    <a href="{{route('displayMember')}}"><i data-feather="users"></i> <span>Users</span></a>
+                    <a href="{{route('displayMember')}}"><i data-feather="users"></i> <span>Members</span></a>
+                </li>
+                <li>
+                    <a href="{{route('displaySetting')}}"><i data-feather="settings"></i> <span>Settings</span></a>
                 </li>
 
                 <li>
@@ -24,9 +27,7 @@
                 </li>
                 
                
-                <li>
-                    <a href="settings.html"><i data-feather="settings"></i> <span>Settings</span></a>
-                </li>
+               
                 <li class="menu-title">
                     <span>Pages</span>
                 </li>
