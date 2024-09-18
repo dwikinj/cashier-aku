@@ -20,6 +20,10 @@
                 </li>
 
                 <li>
+                    <a href="{{route('displaySupplier')}}"><i data-feather="truck"></i> <span>Suppliers</span></a>
+                </li>
+
+                <li>
                     <a href="invoice-items.html"><i data-feather="star"></i> <span>Items</span></a>
                 </li>
                 <li>

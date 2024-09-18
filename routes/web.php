@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,6 +45,10 @@ Route::middleware('auth')->group(function () {
    //settings routes
    Route::resource('settings',SettingController::class);
    Route::get('display-settings',[SettingController::class,'displaySetting'])->name('displaySetting');
+
+   //supplier routes
+   Route::resource('supplier-data',SupplierController::class);
+   Route::get('display-supplier',[SupplierController::class,'displaySupplier'])->name('displaySupplier');
 
 });
 
