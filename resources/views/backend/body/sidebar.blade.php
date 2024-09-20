@@ -22,6 +22,15 @@
                 <li>
                     <a href="{{route('displaySupplier')}}"><i data-feather="truck"></i> <span>Suppliers</span></a>
                 </li>
+                
+                  
+                <li class="menu-title">
+                    <span>Transactions</span>
+                </li>
+
+                <li>
+                    <a href="{{route('displayExpense')}}"><i data-feather="dollar-sign"></i> <span>Expenses</span></a>
+                </li>
 
                 <li>
                     <a href="invoice-items.html"><i data-feather="star"></i> <span>Items</span></a>

@@ -8,7 +8,7 @@ A point of sale application built with Laravel, jQuery, and MySQL.
 - [x] Print Invoice
 - [x] CRUD Supplier
 - [ ] Sales Dashboard Graph
-- [ ] Track Selling
+- [x] Expenses Tracking
 - [x] Inventory Management
 - [ ] Track Buying
 - [ ] Report Sale

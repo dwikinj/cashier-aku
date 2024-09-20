@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CashierController;
 use App\Http\Controllers\Backend\ManagerController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
@@ -49,6 +50,10 @@ Route::middleware('auth')->group(function () {
    //supplier routes
    Route::resource('supplier-data',SupplierController::class);
    Route::get('display-supplier',[SupplierController::class,'displaySupplier'])->name('displaySupplier');
+
+   //supplier routes
+   Route::resource('expense-data',ExpenseController::class);
+   Route::get('display-expense',[ExpenseController::class,'displayExpense'])->name('displayExpense');
 
 });
 
