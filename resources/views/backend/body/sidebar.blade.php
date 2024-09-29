@@ -35,6 +35,9 @@
                 <li>
                     <a href="{{ route('displayPurchase') }}"><i data-feather="download"></i> <span>Purchases</span></a>
                 </li>
+                <li>
+                    <a href="{{ route('displaySale') }}"><i data-feather="upload"></i> <span>Sales</span></a>
+                </li>
 
                 <li>
                     <a href="payments.html"><i data-feather="credit-card"></i> <span>Payments</span></a>
