@@ -9,6 +9,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\PurchaseDetailController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
@@ -26,43 +28,50 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-   Route::get('/dashboard',[ProfileController::class,'index'])->name('dashboard');
+    Route::get('/dashboard', [ProfileController::class, 'index'])->name('dashboard');
 
-   //categories product routes
-   Route::resource('category-data',CategoryController::class);
-   Route::get('category-product',[CategoryController::class,'categoryProduct'])->name('categoryProduct');
+    //categories product routes
+    Route::resource('category-data', CategoryController::class);
+    Route::get('category-product', [CategoryController::class, 'categoryProduct'])->name('categoryProduct');
 
-   //product routes
-   Route::resource('product-data',ProductController::class);
-   Route::get('display-product',[ProductController::class,'displayProduct'])->name('displayProduct');
-   Route::delete('product-data-delete-all',[ProductController::class,'destroyAll'])->name('product-data.destroyall');
-   Route::get('print-product-barcode',[ProductController::class,'printProductsBarcode'])->name('product-data.printbarcode');
+    //product routes
+    Route::resource('product-data', ProductController::class);
+    Route::get('display-product', [ProductController::class, 'displayProduct'])->name('displayProduct');
+    Route::delete('product-data-delete-all', [ProductController::class, 'destroyAll'])->name('product-data.destroyall');
+    Route::get('print-product-barcode', [ProductController::class, 'printProductsBarcode'])->name('product-data.printbarcode');
 
-   //member routes
-   Route::resource('member-data',MemberController::class);
-   Route::get('display-member',[MemberController::class,'displayMember'])->name('displayMember');
-   Route::get('print-member-barcode',[MemberController::class,'printProductsBarcode'])->name('member-data.printbarcode');
-   
-   //settings routes
-   Route::resource('settings',SettingController::class);
-   Route::get('display-settings',[SettingController::class,'displaySetting'])->name('displaySetting');
+    //member routes
+    Route::resource('member-data', MemberController::class);
+    Route::get('display-member', [MemberController::class, 'displayMember'])->name('displayMember');
+    Route::get('print-member-barcode', [MemberController::class, 'printProductsBarcode'])->name('member-data.printbarcode');
 
-   //supplier routes
-   Route::resource('supplier-data',SupplierController::class);
-   Route::get('display-supplier',[SupplierController::class,'displaySupplier'])->name('displaySupplier');
+    //settings routes
+    Route::resource('settings', SettingController::class);
+    Route::get('display-settings', [SettingController::class, 'displaySetting'])->name('displaySetting');
 
-   //supplier routes
-   Route::resource('expense-data',ExpenseController::class);
-   Route::get('display-expense',[ExpenseController::class,'displayExpense'])->name('displayExpense');
+    //supplier routes
+    Route::resource('supplier-data', SupplierController::class);
+    Route::get('display-supplier', [SupplierController::class, 'displaySupplier'])->name('displaySupplier');
 
+    //supplier routes
+    Route::resource('expense-data', ExpenseController::class);
+    Route::get('display-expense', [ExpenseController::class, 'displayExpense'])->name('displayExpense');
+
+    //purchase routes
+    Route::resource('purchase-data', PurchaseController::class);
+    Route::get('display-purchase', [PurchaseController::class, 'displayPurchase'])->name('displayPurchase');
+    Route::get('purchase-supplier', [PurchaseController::class, 'purchaseSupplier'])->name('purchaseSupplier');
+
+    //purchase details routes
+    Route::get('purchase-detail/{purchase}', [PurchaseDetailController::class, 'index'])->name('purchase-detail.index');
+    Route::get('purchase-products', [PurchaseDetailController::class, 'purchaseProducts'])->name('purchase-detail.products');
+    Route::post('purchase-detail', [PurchaseDetailController::class, 'store'])->name('purchase-detail.store');
+    Route::get('purchase-detail/{purchase}/edit', [PurchaseDetailController::class, 'edit'])->name('purchase-detail.edit');
+    Route::patch('purchase-detail/{purchase}', [PurchaseDetailController::class, 'update'])->name('purchase-detail.update');
+    Route::get('purchase-detail/{purchase}/products', [PurchaseDetailController::class, 'showPurchasedProducts'])->name('purchased-products');
 });
 
-Route::middleware(['auth','role:admin'])->group(function () {
-});
+Route::middleware(['auth', 'role:admin'])->group(function () {});
 
-Route::middleware(['auth','role:manager'])->group(function () {
-
-});
-Route::middleware(['auth','role:cashier'])->group(function () {
-
-});
+Route::middleware(['auth', 'role:manager'])->group(function () {});
+Route::middleware(['auth', 'role:cashier'])->group(function () {});
