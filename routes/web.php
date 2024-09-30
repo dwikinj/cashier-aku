@@ -11,6 +11,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\PurchaseDetailController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
@@ -46,8 +47,10 @@ Route::middleware('auth')->group(function () {
     Route::get('print-member-barcode', [MemberController::class, 'printProductsBarcode'])->name('member-data.printbarcode');
 
     //settings routes
-    Route::resource('settings', SettingController::class);
-    Route::get('display-settings', [SettingController::class, 'displaySetting'])->name('displaySetting');
+    Route::controller(SettingController::class)->group(function () {
+        Route::get('admin/settings','showAdminSetting')->name('admin.settings.index');
+        Route::patch('admin/settings', 'updateAdminSetting')->name('admin.settings.update');
+    });
 
     //supplier routes
     Route::resource('supplier-data', SupplierController::class);
@@ -69,6 +72,13 @@ Route::middleware('auth')->group(function () {
     Route::get('purchase-detail/{purchase}/edit', [PurchaseDetailController::class, 'edit'])->name('purchase-detail.edit');
     Route::patch('purchase-detail/{purchase}', [PurchaseDetailController::class, 'update'])->name('purchase-detail.update');
     Route::get('purchase-detail/{purchase}/products', [PurchaseDetailController::class, 'showPurchasedProducts'])->name('purchased-products');
+
+    //sale routes 
+    Route::controller(SaleController::class)->group(function () {
+        Route::get('admin/sales','showSalesPage')->name('admin.sales.index');
+        Route::get('admin/sales/datatable','dataTable')->name('admin.sales.datatable');
+    });
+
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {});
