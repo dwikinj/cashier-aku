@@ -77,6 +77,9 @@ Route::middleware('auth')->group(function () {
     Route::controller(SaleController::class)->group(function () {
         Route::get('admin/sales','showSalesPage')->name('admin.sales.index');
         Route::get('admin/sales/datatable','dataTable')->name('admin.sales.datatable');
+
+        Route::get('sales/gui_pos','showGuiPos')->name('sales.pos');
+        Route::get('sales/products','saleProductsDatatable')->name('sales.products');
     });
 
 });

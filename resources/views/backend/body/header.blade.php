@@ -1,19 +1,19 @@
 @php
     $setting = App\Models\Setting::first();
     $logoPath = $setting && $setting->logo_path 
-        ? Storage::url($setting->logo_path)
+        ? asset($setting->logo_path)
         : asset('storage/default/company_logo.png');
 @endphp
 
 <div class="header header-one">
     <div class="header-left header-left-one">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
             <img src="{{$logoPath}}" alt="Logo">
         </a>
-        <a href="index.html" class="white-logo">
-            <img src="assets/img/logo-white.png" alt="Logo">
+        <a href="/" class="white-logo">
+            <img src="{{$logoPath}}" alt="Logo">
         </a>
-        <a href="index.html" class="logo logo-small">
+        <a href="/" class="logo logo-small">
             <img src="{{$logoPath}}" alt="Logo" width="30" height="30">
         </a>
     </div>

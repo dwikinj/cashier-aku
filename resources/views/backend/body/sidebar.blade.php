@@ -16,7 +16,7 @@
                     <a href="{{ route('displayMember') }}"><i data-feather="users"></i> <span>Members</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('displaySetting') }}"><i data-feather="settings"></i> <span>Settings</span></a>
+                    <a href="{{ route('admin.settings.index') }}"><i data-feather="settings"></i> <span>Settings</span></a>
                 </li>
 
                 <li>
@@ -36,11 +36,11 @@
                     <a href="{{ route('displayPurchase') }}"><i data-feather="download"></i> <span>Purchases</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('displaySale') }}"><i data-feather="upload"></i> <span>Sales</span></a>
+                    <a href="{{ route('admin.sales.index') }}"><i data-feather="upload"></i> <span>Sales</span></a>
                 </li>
 
                 <li>
-                    <a href="payments.html"><i data-feather="credit-card"></i> <span>Payments</span></a>
+                    <a href="{{ route('sales.pos') }}"><i data-feather="monitor"></i> <span>POS</span></a>
                 </li>
 
 
